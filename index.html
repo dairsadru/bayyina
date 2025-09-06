@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🕌 Баййина - Исламское образование</title>
+    <title>Баййина - Исламское образование</title>
     <link rel="stylesheet" href="style.css?v=3">
+    <!-- Swiper.js CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,11 +15,12 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <i class="fas fa-mosque"></i>
-                <span>Баййина</span>
+                <a href="/">
+                    <img src="images/logo/logo.png" alt="Баййина" class="logo">
+                </a>
             </div>
             <div class="nav-links">
-                <a href="#about">О нас</a>
+                <a href="#about-us">О нас</a>
                 <a href="#programs">Программы</a>
                 <a href="#schedule">Расписание</a>
                 <a href="#teachers">Преподаватели</a>
@@ -35,13 +38,13 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>🕌 План организации и обучения в медресе "Баййина"</h1>
+                <h1>План организации и обучения в медресе "Баййина"</h1>
                 <p class="hero-subtitle">Для детей от 6 лет</p>
                 <div class="quran-verse">
                     <p class="verse-text">"Читай во имя Господа твоего, Который сотворил"</p>
                     <p class="verse-reference">Коран, 96:1</p>
                 </div>
-                <div class="hero-features">
+                <div class="hero-features" id="programs">
                     <div class="feature">
                         <i class="fas fa-book-quran"></i>
                         <span>Высокий уровень таджвида</span>
@@ -59,7 +62,7 @@
                         <span>Участие в конкурсах</span>
                     </div>
                 </div>
-                <a class="cta-button" href="https://docs.google.com/forms/d/e/1FAIpQLSfr9Kq2QTH6ZsmB2h1-dneh6bj2VIIHhqGO_XYOYH9kGnSxJQ/viewform?usp=header" target="_blank" rel="noopener noreferrer">Записаться на обучение</a>
+                <a class="cta-button" href="#contact">Записаться на обучение</a>
             </div>
             <div class="hero-image">
                 <div class="mosque-illustration">
@@ -156,7 +159,7 @@
     <!-- Schedule Section -->
     <section id="schedule" class="schedule">
         <div class="container">
-            <h2>📅 Расписание занятий</h2>
+            <h2>📅 РАСПИСАНИЕ ДЛЯ МАЛЬЧИКОВ</h2>
             <p class="schedule-subtitle">2 дня в неделю для мальчиков • 1 час 30 минут • До 8 учеников в группе</p>
             <div class="schedule-grid">
                 <div class="schedule-day">
@@ -215,6 +218,68 @@
         </div>
     </section>
 
+    <!-- Girls Schedule Section -->
+    <section id="schedule-girls" class="schedule girls-schedule">
+        <div class="container">
+            <h2>📅 РАСПИСАНИЕ ДЛЯ ДЕВОЧЕК</h2>
+            <p class="schedule-subtitle">2 дня в неделю для девочек • 1 час 30 минут • До 8 учениц в группе</p>
+            <div class="schedule-grid">
+                <div class="schedule-day">
+                    <h3>Вторник</h3>
+                    <div class="schedule-slots">
+                        <div class="time-slot">
+                            <span class="time">17:00 - 18:30</span>
+                            <span class="group">1 группа</span>
+                        </div>
+                        <div class="time-slot">
+                            <span class="time">19:00 - 20:30</span>
+                            <span class="group">2 группа</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3>Четверг</h3>
+                    <div class="schedule-slots">
+                        <div class="time-slot">
+                            <span class="time">17:00 - 18:30</span>
+                            <span class="group">3 группа</span>
+                        </div>
+                        <div class="time-slot">
+                            <span class="time">19:00 - 20:30</span>
+                            <span class="group">4 группа</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3>Суббота</h3>
+                    <div class="schedule-slots">
+                        <div class="time-slot">
+                            <span class="time">13:00 - 14:30</span>
+                            <span class="group">1 группа</span>
+                        </div>
+                        <div class="time-slot">
+                            <span class="time">15:00 - 16:30</span>
+                            <span class="group">2 группа</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3>Воскресенье</h3>
+                    <div class="schedule-slots">
+                        <div class="time-slot">
+                            <span class="time">13:00 - 14:30</span>
+                            <span class="group">3 группа</span>
+                        </div>
+                        <div class="time-slot">
+                            <span class="time">15:00 - 16:30</span>
+                            <span class="group">4 группа</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Teachers Section -->
     <section id="teachers" class="teachers">
         <div class="container">
@@ -224,15 +289,15 @@
                     <div class="teacher-avatar">
                         <i class="fas fa-user-tie"></i>
                     </div>
-                    <h3>Преподаватель 1</h3>
+                    <h3>Парвиз</h3>
                     <p class="teacher-specialty">Чтение Корана, таджвид, хифз</p>
                     <p class="teacher-gender">Учитель для мальчиков</p>
                 </div>
                 <div class="teacher-card">
                     <div class="teacher-avatar">
-                        <i class="fas fa-user-tie"></i>
+                        <i class="fas fa-person-dress-hijab"></i>
                     </div>
-                    <h3>Преподаватель 2</h3>
+                    <h3>Патимат</h3>
                     <p class="teacher-specialty">Чтение Корана, таджвид, хифз</p>
                     <p class="teacher-gender">Учитель для девочек</p>
                 </div>
@@ -425,94 +490,32 @@
         </section>
 
         <!-- Галерея-карусель -->
-        <section class="gallery-section section" role="region" aria-label="Галерея: наши ученики" style="margin-top: var(--space-xl, 64px);">
-            <div class="container">
-                <h2 class="section-title">Наши ученики</h2>
-                <div class="section-subtitle text-muted" style="margin-bottom: var(--space-m, 1.5rem);">
-                    Здесь — моменты с уроков и встреч: от первых букв до заучивания сур и джуза.
-                </div>
-                <div class="gallery-carousel" id="gallery-carousel" aria-live="polite">
-                      <button class="gallery-arrow gallery-arrow-prev btn" aria-label="Предыдущий слайд" aria-controls="gallery-carousel"><span aria-hidden="true">&#60;</span></button>
-                    <div class="gallery-track-wrapper">
-                        <ul class="gallery-track grid" tabindex="0">
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: Первые шаги в чтении Корана">
-                                    <img src="images/boy_read.jpg" srcset="images/boy_read.jpg 1x, images/boy_read2.jpg 2x" sizes="(max-width: 600px) 100vw, 33vw" loading="lazy" alt="Урок чтения: первые буквы" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">Первые шаги в чтении Корана</div>
-                            </li>
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: Совместная работа в классе">
-                                    <img src="images/kids_read.jpg" loading="lazy" alt="Группа учеников на занятии" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">Совместная работа в классе</div>
-                            </li>
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: От букв к аятам">
-                                    <img src="images/Quran.jpg" loading="lazy" alt="Ученик читает суру" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">От букв к аятам</div>
-                            </li>
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: Закрепление без спешки">
-                                    <img src="images/Quran_list.jpg" loading="lazy" alt="Повторение выученных аятов" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">Закрепление без спешки</div>
-                            </li>
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: Понимание — прежде скорости">
-                                    <img src="images/Imagesquran-ornate.jpg" loading="lazy" alt="Наставник объясняет правило" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">Понимание — прежде скорости</div>
-                            </li>
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: Короткие шаги — стабильный прогресс">
-                                    <img src="images/boy_read2.jpg" loading="lazy" alt="Малая группа у доски" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">Короткие шаги — стабильный прогресс</div>
-                            </li>
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: Начинаем день со знания">
-                                    <img src="images/Images/1.jpg" loading="lazy" alt="Утренняя встреча учеников" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">Начинаем день со знания</div>
-                            </li>
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: Системность и аккуратность">
-                                    <img src="images/Images/2.jpg" loading="lazy" alt="Работа с тетрадью" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">Системность и аккуратность</div>
-                            </li>
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: Поддержка друг друга">
-                                    <img src="images/Images/3.jpg" loading="lazy" alt="Повтор джуза в паре" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">Поддержка друг друга</div>
-                            </li>
-                            <li class="gallery-slide">
-                                <button class="gallery-img-btn" aria-label="Открыть фото: Каждый прогресс важен">
-                                    <img src="images/Images/4.jpg" loading="lazy" alt="Общее фото после занятия" class="gallery-img" />
-                                </button>
-                                <div class="gallery-caption text-muted">Каждый прогресс важен</div>
-                            </li>
-                        </ul>
+                <section class="gallery-section section" role="region" aria-label="Галерея: наши ученики" style="margin-top: var(--space-xl, 64px);">
+                    <div class="container">
+                        <h2 class="section-title">Наши ученики</h2>
+                        <div class="section-subtitle text-muted" style="margin-bottom: var(--space-m, 1.5rem);">
+                            Здесь — моменты с уроков и встреч: от первых букв до заучивания сур и джуза.
+                        </div>
                     </div>
-                      <button class="gallery-arrow gallery-arrow-next btn" aria-label="Следующий слайд" aria-controls="gallery-carousel"><span aria-hidden="true">&#62;</span></button>
-                    <button class="gallery-playpause btn" aria-label="Старт/Пауза" aria-controls="gallery-carousel"><span class="gallery-playpause-icon" aria-hidden="true">&#10074;&#10074;</span></button>
-                </div>
-            </div>
-            <!-- Лайтбокс для полноэкранного просмотра -->
-            <div class="gallery-lightbox" id="gallery-lightbox" tabindex="-1" aria-modal="true" role="dialog" hidden>
-                <div class="gallery-lightbox-backdrop" tabindex="-1"></div>
-                <div class="gallery-lightbox-content">
-                    <button class="gallery-lightbox-close btn" aria-label="Закрыть просмотр">&times;</button>
-                    <button class="gallery-lightbox-arrow gallery-lightbox-prev btn" aria-label="Предыдущее фото"><span aria-hidden="true">&#8592;</span></button>
-                    <img class="gallery-lightbox-img" src="" alt="" />
-                    <div class="gallery-lightbox-caption text-muted"></div>
-                    <button class="gallery-lightbox-arrow gallery-lightbox-next btn" aria-label="Следующее фото"><span aria-hidden="true">&#8594;</span></button>
-                </div>
-            </div>
-        </section>
+                    <div class="swiper gallery-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/1.jpg" srcset="images/boy_read.jpg 1x, images/boy_read2.jpg 2x" sizes="(max-width: 600px) 100vw, 33vw" loading="lazy" alt="Урок чтения: первые буквы" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/11.jpg" loading="lazy" alt="Группа учеников на занятии" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/2.jpg" loading="lazy" alt="Работа с тетрадью" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/3.jpg" loading="lazy" alt="Повтор джуза в паре" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/4.jpg" loading="lazy" alt="Общее фото после занятия" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/5.jpg" loading="lazy" alt="Фото 5" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/6.jpg" loading="lazy" alt="Фото 6" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/7.jpg" loading="lazy" alt="Фото 7" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/8.jpg" loading="lazy" alt="Фото 8" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/9.jpg" loading="lazy" alt="Фото 9" class="gallery-img" /></button></div>
+                            <div class="swiper-slide"><button class="gallery-img-btn" aria-label="Открыть фото" type="button"><img src="images/Images/10.jpg" loading="lazy" alt="Фото 10" class="gallery-img" /></button></div>
+                        </div>
+                        <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Предыдущий слайд"></div>
+                        <div class="swiper-button-next" tabindex="0" role="button" aria-label="Следующий слайд"></div>
+                        <div class="swiper-pagination" tabindex="0" role="navigation" aria-label="Пагинация галереи"></div>
+                    </div>
+                </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -532,7 +535,6 @@
                         <i class="fas fa-phone"></i>
                         <span>+7 999 005-39-55</span>
                     </div>
-
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Адрес Ленинский проспект 84 корпус 2</span>
@@ -546,24 +548,33 @@
             </div>
         </div>
     </section>
+    <!-- Лайтбокс для полноэкранного просмотра -->
+    <div class="gallery-lightbox" id="gallery-lightbox" tabindex="-1" aria-modal="true" role="dialog" hidden>
+        <div class="gallery-lightbox-backdrop" tabindex="-1"></div>
+        <div class="gallery-lightbox-content">
+            <button class="gallery-lightbox-close btn" aria-label="Закрыть просмотр">&times;</button>
+            <img class="gallery-lightbox-img" src="" alt="" />
+        </div>
+    </div>
+
+    <!-- Подключение Swiper.js и скриптов -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="gallery-swiper-init.js"></script>
+    <script src="script.js"></script>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <i class="fas fa-mosque"></i>
-                    <span>Баййина</span>
+                <div class="footer-info">
+                    <p>Мадраса «Баййина»</p>
                 </div>
-                <p>&copy; 2021 Медресе "Баййина". Все права защищены.</p>
+                <p class="copyright">© 2025 Мадраса «Баййина». Все права защищены.</p>
             </div>
         </div>
     </footer>
-
-    <script src="script.js?v=3"></script>
 </body>
 </html>
-
 
 
 

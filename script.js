@@ -1,3 +1,36 @@
+// Лайтбокс для галереи Swiper
+document.addEventListener('DOMContentLoaded', function () {
+    const gallery = document.querySelector('.gallery-section');
+    if (!gallery) return;
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImg = lightbox && lightbox.querySelector('.gallery-lightbox-img');
+    const closeBtn = lightbox && lightbox.querySelector('.gallery-lightbox-close');
+    const backdrop = lightbox && lightbox.querySelector('.gallery-lightbox-backdrop');
+    gallery.addEventListener('click', function (e) {
+        const btn = e.target.closest('.gallery-img-btn');
+        if (!btn) return;
+        const img = btn.querySelector('img');
+        if (!img || !lightbox || !lightboxImg) return;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || '';
+        lightbox.removeAttribute('hidden');
+        lightbox.focus();
+        document.body.style.overflow = 'hidden';
+    });
+    function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.setAttribute('hidden', '');
+        if (lightboxImg) lightboxImg.src = '';
+        document.body.style.overflow = '';
+    }
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (backdrop) backdrop.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', function (e) {
+        if (lightbox && !lightbox.hasAttribute('hidden') && (e.key === 'Escape' || e.key === 'Esc')) {
+            closeLightbox();
+        }
+    });
+});
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -8,16 +41,24 @@ navToggle.addEventListener('click', () => {
 });
 
 // Smooth Scrolling for Navigation Links
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        const target = document.querySelector(href);
         if (target) {
+            e.preventDefault();
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
+            // Закрыть мобильное меню после перехода
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
         }
+        // если якоря нет — переход по умолчанию
     });
 });
 
