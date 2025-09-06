@@ -471,10 +471,55 @@ body {
     background-color: #fafafa;
 }
 
+/* Prefer Poppins for headings and navigation if available */
+h1, h2, h3, .nav-links a, .cta-button {
+    font-family: 'Poppins', 'Inter', sans-serif;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* Fullscreen stylish mobile menu (end of file block) */
+@media (max-width: 768px) {
+    .nav-toggle { position: relative; z-index: 1600; }
+    /* use .active to show full-screen menu */
+    .nav-links.active {
+        display: flex !important;
+        position: fixed !important;
+        inset: 0 0 0 0 !important; /* fill viewport */
+        background: linear-gradient(180deg, rgba(8,36,17,0.98), rgba(20,60,30,0.96));
+        color: #fff;
+        padding: 4rem 2rem 2rem 2rem !important;
+        flex-direction: column !important;
+        gap: 1.25rem !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 1500 !important;
+    }
+    .nav-links.active a {
+        font-size: 1.45rem;
+        font-weight: 600;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.6rem 0.25rem;
+        letter-spacing: 0.01em;
+        transition: color 0.18s ease, transform 0.18s ease;
+    }
+    .nav-links.active a:hover { color: #f4d03f; transform: translateY(-3px); }
+    .nav-links.active::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 20px 20px;
+        pointer-events: none;
+        z-index: 1495;
+    }
+    .nav-brand { z-index: 1510; }
+    .nav-brand .logo { height: 64px; }
 }
 
 /* Стили для логотипа */
