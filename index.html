@@ -8,6 +8,7 @@
     <!-- Swiper.js CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -19,17 +20,18 @@
                     <img src="images/logo/logo.png" alt="Баййина" class="logo">
                 </a>
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="site-nav">
                 <a href="#about-us">О нас</a>
                 <a href="#programs">Программы</a>
                 <a href="#schedule">Расписание</a>
                 <a href="#teachers">Преподаватели</a>
                 <a href="#contact">Контакты</a>
             </div>
-            <button class="nav-toggle">
+            <button class="nav-toggle" id="navToggle" aria-controls="site-nav" aria-expanded="false" aria-label="Открыть меню">
                 <span></span>
                 <span></span>
                 <span></span>
+                <span class="sr-only">Меню</span>
             </button>
         </nav>
     </header>
