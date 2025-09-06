@@ -31,58 +31,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-// Mobile Navigation Toggle (defensive: apply inline styles to force visibility)
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
+// Mobile Navigation Toggle
+const navToggle = document.querySelector('#navToggle') || document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('#site-nav') || document.querySelector('.nav-links');
 
 if (navToggle && navLinks) {
     function openMenu() {
-        // keep class for animation
         navLinks.classList.add('active');
         navToggle.classList.add('active');
-        // compute header height to place menu just below it
-        const header = document.querySelector('.header');
-        const topOffset = header ? header.getBoundingClientRect().height + 'px' : '64px';
-        // inline styles to override conflicting CSS
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'fixed';
-        navLinks.style.top = topOffset;
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.background = '#2c5530';
-        navLinks.style.padding = '1rem';
-        navLinks.style.gap = '1rem';
-        navLinks.style.boxShadow = '0 8px 30px rgba(0,0,0,0.35)';
-        navLinks.style.zIndex = '1400';
-        document.body.classList.add('nav-open');
         navToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-open');
     }
 
     function closeMenu() {
         navLinks.classList.remove('active');
         navToggle.classList.remove('active');
-        // remove inline styles
-        navLinks.style.display = '';
-        navLinks.style.flexDirection = '';
-        navLinks.style.position = '';
-        navLinks.style.top = '';
-        navLinks.style.left = '';
-        navLinks.style.right = '';
-        navLinks.style.background = '';
-        navLinks.style.padding = '';
-        navLinks.style.gap = '';
-        navLinks.style.boxShadow = '';
-        navLinks.style.zIndex = '';
-        document.body.classList.remove('nav-open');
         navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
     }
 
     navToggle.addEventListener('click', () => {
         if (navLinks.classList.contains('active')) closeMenu(); else openMenu();
     });
 
-    // Close when a nav link is clicked (keep existing smooth scroll logic)
+    // Close when a nav link is clicked (anchor navigation handled elsewhere)
     navLinks.addEventListener('click', function (e) {
         const a = e.target.closest('a');
         if (!a) return;
